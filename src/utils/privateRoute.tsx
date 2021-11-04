@@ -17,7 +17,7 @@ type Props = {
 // }
 
 export default function ProtectedRoute({children, redirectPath}: Props) {
-  let [session, setSession] = useSessionContext();
+  let [session] = useSessionContext();
 
   return session.isAuthenticated ?
     <Switch>{children}</Switch> :

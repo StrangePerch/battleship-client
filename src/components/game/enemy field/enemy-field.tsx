@@ -20,7 +20,7 @@ type FieldState = {
 export default function EnemyField(props: Props) {
   const [fieldState, setFieldState] = useState<FieldState>(
     {state: "WaitingForYouToMove", field: props.field});
-  const [size, setSize] = useState(500);
+  const [size] = useState(500);
 
   const handleClick = (cords: Cords) => {
     props.onClick(cords)
@@ -40,19 +40,17 @@ export default function EnemyField(props: Props) {
           {y: cords.y + 1, x: cords.x},
           cords,
           prev))
-        break;
       case Direction.Right:
         return (CheckDir(
           {y: cords.y, x: cords.x + 1},
           {y: cords.y, x: cords.x - 1},
           cords,
           prev))
-        break;
     }
     return false;
   }
 
-  function CheckDir(a: Cords, b: Cords, cords: Cords, prev?: Cords) {
+  function CheckDir(a: Cords, b: Cords, cords: Cords, prev?: Cords) : boolean {
     let isA, isB;
     if (prev) {
       if (a === prev) {
@@ -67,9 +65,7 @@ export default function EnemyField(props: Props) {
       isB = CheckTile(a, cords);
       if (isA && isB) Destroyed(cords);
     }
-    if (isA && isB) {
-      return true;
-    } else return false
+    return !!(isA && isB);
   }
 
   function Destroyed(cords: Cords, prev?: Cords) {

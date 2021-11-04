@@ -19,7 +19,6 @@ type AppProps = {
 };
 
 export default function BuilderFieldTile(props: AppProps) {
-  const [hit, setHit] = useState(true);
   const [state, setState] = useState(props.state);
   useEffect(() => {
     setState(props.state)
@@ -33,7 +32,6 @@ export default function BuilderFieldTile(props: AppProps) {
             style={{...styles.maxSize, color: "blue"}}/>
         </div>
       )
-      break;
     case States.PlacementInProgress:
       return (
         <div style={{width: props.size, height: props.size}}
@@ -42,7 +40,6 @@ export default function BuilderFieldTile(props: AppProps) {
             style={{...styles.maxSize, color: "green"}}/>
         </div>
       )
-      break;
     case States.PlacementBlocked:
       return (
         <div style={{width: props.size, height: props.size}}
@@ -51,7 +48,6 @@ export default function BuilderFieldTile(props: AppProps) {
             style={{...styles.maxSize, color: "red"}}/>
         </div>
       )
-      break;
     case States.Placed:
       return (
         <div style={{width: props.size, height: props.size}}
@@ -60,6 +56,5 @@ export default function BuilderFieldTile(props: AppProps) {
             style={styles.maxSize}/>
         </div>
       )
-      break;
   }
 }

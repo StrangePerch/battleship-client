@@ -46,7 +46,7 @@ function getRandomInt(min: number, max: number): number {
 
 
 export default function BuilderField(props: Props) {
-  const [size, setSize] = useState(500);
+  const [size] = useState(500);
   const [builderState, setBuilderState] = useState<Builder>(initialState)
 
   const Test = (hovered: Cords) => {

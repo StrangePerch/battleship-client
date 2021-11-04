@@ -22,7 +22,7 @@ type Props = {
 }
 
 export default function ServerConnector(props: Props) {
-  const [session, setSession] = useSessionContext();
+  const [session] = useSessionContext();
   const [gameState, setGameState] = useState<GameState>(
     {
       state: States.ConnectingToServer,

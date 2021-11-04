@@ -7,7 +7,7 @@ type Props = {
 }
 
 export default function YourField(props: Props) {
-  const [size, setSize] = useState(500);
+  const [size] = useState(500);
   const [field, setField] = useState(props.field);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function YourField(props: Props) {
       <div style={{width: size, height: size}}>
         <div className={"field"} style={{width: size, height: size}}>
           {
-            props.field.map((row, y) =>
+            field.map((row, y) =>
               row.map((state, x) =>
                 <YourFieldTile key={y + "-" + x}
                                size={(size / 10)}

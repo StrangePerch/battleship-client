@@ -19,23 +19,6 @@ type State = {
   socket?: any
 }
 
-function ToBoolField(field: TileState[][]) {
-  let bool_field: boolean[][]
-
-  bool_field = [];
-  for (let i = 0; i < 10; i++) {
-    bool_field[i] = [];
-    for (let j = 0; j < 10; j++) {
-      if (field[i][j].type == TileType.Ship) {
-        bool_field[i][j] = true;
-      } else {
-        bool_field[i][j] = false;
-      }
-    }
-  }
-  return bool_field;
-}
-
 export default function GameManager() {
   const [state, setState] = useState<State>({phase: Phases.BuilderPhase})
 
