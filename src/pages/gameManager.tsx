@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import ServerConnector from "./ServerConnector";
 import BuilderField from "../components/game/builder field/builder-field";
 import Menu from "../components/ui/menu";
-import {TileState, TileType} from "../components/game/shared/types";
+import {TileState} from "../components/game/shared/types";
 import GamePage from "./gamePage";
 
 enum Phases {
