@@ -52,7 +52,7 @@ export default function ServerConnector(props: Props) {
 
   useEffect(() => {
     connect();
-  }, [])
+  }, [connect])
 
 
   if (gameState.state === States.ConnectingToServer) {
